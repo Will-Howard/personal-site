@@ -5,6 +5,7 @@ type Data = {
   name: string
 }
 
+// leaving this here for reference
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
