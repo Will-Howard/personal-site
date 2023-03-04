@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { createUseStyles } from "react-jss";
+import crestPic from "../public/crest.png";
 
 const COLUMN_MAX_WIDTH = "640px";
 
@@ -16,34 +17,42 @@ const useStyles = createUseStyles((theme: any) => ({
     marginBottom: 24,
   },
   header: {
-    fontFamily: "Gill Sans,Gill Sans MT,Calibri,sans-serif",
+    fontFamily: theme.headingFont,
     color: theme.primary,
-  },
-  crestContainer: {
-    maxHeight: 111,
-    objectFit: "contain",
+    [theme.breakpoints.sm]: {
+      fontSize: '1.7em',
+    }
   },
   crest: {
-    position: "relative",
-    height: 111,
+    marginRight: 17,
+    height: 90,
     width: 'auto',
+
+    [theme.breakpoints.sm]: {
+      height: 60,
+      marginRight: 6,
+    }
   },
   paragraph: {
-    fontFamily:
-      "Petrona, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Times, Source Serif Pro, serif",
+    fontFamily: theme.bodyFont,
     fontSize: 16,
+    '& a': {
+      color: theme.primary,
+      textDecoration: "none",
+    },
   },
   centralColumn: {
     margin: "auto",
     maxWidth: COLUMN_MAX_WIDTH,
     padding: "48px 24px",
+    [theme.breakpoints.sm]: {
+      padding: "36px 24px",
+    }
   },
 }));
 
 export default function Home() {
   const classes = useStyles();
-
-  const imageHeight = 100;
 
   return (
     <>
@@ -57,10 +66,25 @@ export default function Home() {
         <div className={classes.centralColumn}>
           <div className={classes.headerRow}>
             <h1 className={classes.header}>Will Howard</h1>
-            <Image height={imageHeight} width={(138 / 111) * imageHeight} src="/crest.png" alt="I just wanted a crest" />
+            <Image
+              className={classes.crest}
+              // height={imageHeight}
+              // width={(138 / 111) * imageHeight}
+              src={crestPic}
+              alt="I just wanted a crest"
+            />
           </div>
           <p className={classes.paragraph}>
-            I am a software engineer and effective altruist
+            Software engineer and effective altruist. You can find me on{" "}
+            <a href="https://github.com/Will-Howard">GitHub</a> and{" "}
+            <a href="https://www.linkedin.com/in/will-howard-011650a9/">
+              LinkedIn
+            </a>
+            , and also on the{" "}
+            <a href="https://forum.effectivealtruism.org/users/will-howard-1">
+              EA Forum
+            </a>{" "}
+            which is where I currently work.
           </p>
         </div>
       </main>
