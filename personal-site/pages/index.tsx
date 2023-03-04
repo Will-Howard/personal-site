@@ -21,6 +21,7 @@ const useStyles = createUseStyles((theme: any) => ({
     color: theme.primary,
     [theme.breakpoints.sm]: {
       fontSize: '1.7em',
+      color: theme.primaryLight,
     }
   },
   crest: {
@@ -39,6 +40,9 @@ const useStyles = createUseStyles((theme: any) => ({
     '& a': {
       color: theme.primary,
       textDecoration: "none",
+      [theme.breakpoints.sm]: {
+        color: theme.primaryLight,
+      }
     },
   },
   centralColumn: {
