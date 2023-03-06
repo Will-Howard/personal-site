@@ -75,8 +75,6 @@ export default function Home() {
             <h1 className={classes.header}>Will Howard</h1>
             <Image
               className={classes.crest}
-              // height={imageHeight}
-              // width={(138 / 111) * imageHeight}
               src={crestPic}
               alt="I just wanted a crest"
             />
